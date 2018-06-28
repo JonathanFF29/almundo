@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar >
+        <ion-title style="background-image: url('assets/imgs/logo-almundo.svg') !important; background-repeat: no-repeat; background-position-x: 10%;
+            background-size: 40%; font-size: 5rem;">.
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only style="background-color: transparents;font-size: 2rem;" (click)="closeModal()">
+                <ion-icon style="color:white;" name="md-arrow-back"></ion-icon>
+            </button>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <agm-map style="height:550px;" [latitude]="lat" [longitude]="lng" [zoom]="12">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+
+</ion-content>

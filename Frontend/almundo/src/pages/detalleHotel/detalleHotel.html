@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="background-image: url('assets/imgs/logo-almundo.svg') !important; background-repeat: no-repeat; background-position-x: 10%;
+          background-size: 40%; font-size: 5rem;">.
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only style="background-color: transparents;font-size: 2rem;" (click)="closeModal()">
+                <ion-icon style="color:white;" name="md-arrow-back"></ion-icon>
+            </button>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="assets/imgs/hotel.png">
+            </ion-avatar>
+            <h2 style="font-size:13pt;color:#08088A">{{hotel.name}}</h2>
+            <p style="font-size:15pt;color:orange">Precio Noche: ARS {{hotel.price}} </p>
+        </ion-item>
+
+        <img src="assets/imgs/hoteles/{{hotel.image}}">
+
+        <ion-card-content>
+            <p>Este encantador hotel boutique de 4 estrellas es el refugio ideal para estancias de negocios y relax en el centro
+                , a escasos minutos de la zonas principales y accesible a pie desde la zona comercial. Ubicado en un típico
+                edificio victoriano recientemente reformado, disfruta de un apacible entorno en una zona residencial con
+                vistas privilegiadas. Un oasis de tranquilidad para desconectar del frenético ritmo de la ciudad. Su fachada
+                de estilo clásico inglés contrasta con el diseño moderno y minimalista de su interior, decorado con una fascinante
+                colección de mosaicos romanos. Las instalaciones del hotel cuentan con 140 elegantes habitaciones completamente
+                renovadas, ambientes íntimos orientados al confort y cuidados hasta el más mínimo detalle. Con gimnasio,
+                sauna, salón para reuniones y dos espacios gastronómicos únicos, que brindan la oportunidad de saborear una
+                cocina creativa de raíces españolas en el centro de la capital británica
+            </p>
+        </ion-card-content>
+        <div style="margin:5%;">
+            <h2 style="font-size:13pt;color:#08088A">Estrellas</h2>
+            <rating style="font-size:16pt;" [(ngModel)]="hotel.stars" readOnly="true" max="5" starIconName="star" nullable="false">
+            </rating>
+        </div>
+
+        <div style="margin:5%;">
+            <h2 style="font-size:13pt;color:#08088A">Servicios</h2>
+
+        </div>
+        <ion-row style="margin:5%;">
+
+            <ion-col *ngFor="let amenitie of hotel.amenities">
+                <img style="height: 70%;width: 70%;" src="assets/imgs/amenities/{{amenitie}}.svg">
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-col>
+                <button style="color: #08088A;" ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>12 Me gusta</div>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button style="color: #08088A;" ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>4 Comentarios</div>
+                </button>
+            </ion-col>
+            <ion-col center text-center>
+                <span style="color:#ffffff" item-left>Ver en el mapa</span>
+                <button (click)="verMapa()" style="background-color: #08088A;color:white" ion-button icon-left item-end>
+                    <ion-icon name="pin"></ion-icon>
+                    Ubicacion
+                </button>
+            </ion-col>
+        </ion-row>
+
+    </ion-card>
+
+</ion-content>

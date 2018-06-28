@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="ionTitle" style="background-image: url('assets/imgs/logo-almundo.svg') !important; background-repeat: no-repeat; background-position-x: 1%;">.
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row wrap>
+      <ion-col col-12 col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-20>
+        <ion-row [hidden]="devWidth < 576" style="background-color:white;margin:2%;padding:2%;">
+          <p style="text-align: left;font-size:12pt;color:black">Filtros</p>
+        </ion-row>
+        <ion-row style="background-color:white;margin:2%;padding:2%;">
+
+          <ion-col col-6 col-xl-8 col-lg-12 col-md-6 col-sm-4 col-xs-3>
+            <div>
+              <p style="color:#08088A;font-size:10pt;">
+                <ion-icon name="search" item-star large></ion-icon> Nombre del hotel</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-3>
+            <div style="display: flex;justify-content: space-between;">
+              <ion-input style="color:#000000;font-size:10pt;" type="text" [(ngModel)]="nombre" placeholder="ingrese el nombre del hotel"></ion-input>
+              <button (click)="filtrarHoteles()" ion-button style="background:#08088A;text-align:center;">
+                Aceptar
+              </button>
+            </div>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row style="background-color:white;margin:2%;padding:2%;">
+
+          <div>
+            <p style="color:#08088A;font-size:10pt;">
+              <ion-icon name="star" item-star large></ion-icon> Estrellas</p>
+          </div>
+          <div>
+            <ion-item style="font-size:10pt;">
+              <ion-label>Todas las estrellas</ion-label>
+              <ion-checkbox (click)="filtrarHotelesEstrella(1)" [(ngModel)]="estrellas.todas"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="font-size:10pt;">
+              <ion-label>
+                <ion-icon name="star" item-star> </ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+              </ion-label>
+              <ion-checkbox (click)="filtrarHotelesEstrella(2)" [(ngModel)]="estrellas.cinco"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="font-size:10pt;">
+              <ion-label>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+              </ion-label>
+              <ion-checkbox (click)="filtrarHotelesEstrella(2)" [(ngModel)]="estrellas.cuatro"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="font-size:10pt;">
+              <ion-label>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+              </ion-label>
+              <ion-checkbox (click)="filtrarHotelesEstrella(2)" [(ngModel)]="estrellas.tres"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="font-size:10pt;">
+              <ion-label>
+                <ion-icon name="star" item-star></ion-icon>
+                <ion-icon name="star" item-star></ion-icon>
+              </ion-label>
+              <ion-checkbox (click)="filtrarHotelesEstrella(2)" [(ngModel)]="estrellas.dos"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="font-size:10pt;">
+              <ion-label>
+                <ion-icon name="star" item-star></ion-icon>
+              </ion-label>
+              <ion-checkbox (click)="filtrarHotelesEstrella(2)" [(ngModel)]="estrellas.una"></ion-checkbox>
+            </ion-item>
+
+          </div>
+        </ion-row>
+
+
+      </ion-col>
+
+      <ion-col col-12 col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-20>
+        <ion-row style="background-color:white;margin:1%;" *ngFor="let hotel of hoteles2">
+
+          <ion-col col-12 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-3>
+            <img style="height: 93%;width: 93%;" src="assets/imgs/hoteles/{{hotel.image}}">
+          </ion-col>
+
+          <ion-col col-12 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-3>
+
+            <h2 style="font-size:12pt;color:#08088A">{{hotel.name}}</h2>
+            <rating [(ngModel)]="hotel.stars" readOnly="true" max="5" starIconName="star" nullable="false">
+            </rating>
+            <ion-col *ngFor="let amenitie of hotel.amenities">
+              <img style="height: 12%;width: 10%;" src="assets/imgs/amenities/{{amenitie}}.svg">
+            </ion-col>
+
+
+          </ion-col>
+
+          <ion-col style="text-align: center;  border-left-style: dotted;border-left-color: #BDBDBD;border-left-width: 1.5px;" col-12 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-3>
+            <p style="text-align: center;font-size:11pt;color:black">Precio por noche por habitación</p>
+            <p style="text-align: center;font-size:15pt;color:orange">ARS {{hotel.price}}</p>
+            <button (click)="verHotel(hotel)" ion-button style="background:#08088A;text-align:center;width:80%;font-size:15pt;">
+              Ver hotel
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

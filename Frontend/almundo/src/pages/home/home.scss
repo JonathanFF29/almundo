@@ -1,0 +1,55 @@
+page-home {
+    .toolbar-background-md {
+        border-color: #b2b2b2;
+        background: #08088A;
+    }
+
+    .toolbar-title-md {
+        font-size: 3rem;
+        font-weight: 500;
+        color: #424242;
+    }
+
+    .ion-md-star{
+        color: #F1C40F;
+    }
+
+    .ion-md-star-outline{
+        color: transparent;
+    }
+
+    .rating{
+        padding-left: 1%;
+    }
+
+    .button-md {
+        height: 4rem;
+        font-size: 1rem;;
+    }
+
+    .item-md.item-block .item-inner {
+        padding-right: 0px; 
+        border-bottom: 0px solid transparent ; 
+    }
+
+    .ionTitle{
+    background-size: 15%; 
+    font-size: 2rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        .ionTitle{
+            background-size: 45%; 
+            font-size: 6rem;
+    }
+}
+
+    @media screen and (min-width : 600px) and (max-width : 850px) {
+        .ionTitle{
+            background-size: 30%; 
+            font-size: 5rem;
+    }
+  }
+
+ 
+}
